@@ -1,0 +1,6 @@
+a
+memory::
+composer.lock
+/.bin
+/build
+/vendor
