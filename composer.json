@@ -1,6 +1,6 @@
 {
-    "name" : "anax/noname",
-    "description": "A me page for the ramverk1 course.",
+    "name" : "lingul/ramverk1-weathermodule",
+    "description": "Anax module for Weather forecasts.",
     "license": "MIT",
     "minimum-stability": "beta",
     "prefer-stable": true,
@@ -8,9 +8,18 @@
         "psr-4": {"Anax\\": "src/"}
     },
     "require": {
-        "anax/anax-ramverk1-me": "^1.0.0"
+        "php": ">=7.2",
+        "anax/commons": "^2.0.0@beta",
+        "anax/configure": "^2.0.0@alpha",
+        "anax/controller": "^2.0.0@beta",
+        "anax/di": "^2.0.0@alpha",
+        "anax/page": "^2.0.0@beta",
+        "anax/request": "^2.0.0@beta",
+        "anax/response": "^2.0.0@beta",
+        "anax/view": "^2.0.0@beta",
+        "anax/url": "^2.0.0@alpha"
     },
     "require-dev": {
-        "phpunit/phpunit": "^7"
+        "phpunit/phpunit": "^7",
     }
 }
