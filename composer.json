@@ -14,7 +14,7 @@
         }
     ],
     "require": {
-        "anax/anax-ramverk1-me": "^1.0.0",
+        "anax/ramverk1-me-v2": "^1.0.0",
         "anax/remserver": "dev-master"
     },
     "require-dev": {
