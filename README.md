@@ -12,10 +12,9 @@ composer require lingul/ramverk1-weathermodule ^v1.2.1
 ```
 bash vendor/lingul/ramverk1-weathermodule/.anax/scaffold/postprocess.d/700_weather.bash
 ```
-* Enter the api keys
+* Enter the api key in config/api.php
 ```
 <?php
-return [
-    "ipstack" => 'Enter Ipstack key here',
-];
+
+    return ["enter apikey", "enter apikey"];
 ```
