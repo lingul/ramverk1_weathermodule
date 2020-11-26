@@ -16,7 +16,7 @@ class WeatherControllerTest extends TestCase
         global $di;
 
         $di = new DIFactoryConfig();
-        $di->loadServices(ANAX_INSTALL_PATH . "/config/di");
+        $di->loadServices(ANAX_INSTALL_PATH . "/test/config/di");
 
         $this->di = $di;
 

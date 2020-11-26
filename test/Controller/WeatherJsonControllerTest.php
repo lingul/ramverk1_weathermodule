@@ -18,7 +18,7 @@ class WeatherJsonControllerTest extends TestCase
         global $di;
 
         $this->di = new DIFactoryConfig();
-        $this->di->loadServices(ANAX_INSTALL_PATH . "/config/di");
+        $this->di->loadServices(ANAX_INSTALL_PATH . "/test/config/di");
 
         $di = $this->di;
 
