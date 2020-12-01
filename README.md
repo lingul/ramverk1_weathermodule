@@ -1,3 +1,15 @@
+[![Build Status](https://scrutinizer-ci.com/g/lingul/ramverk1_weathermodule/badges/build.png?b=master)](https://scrutinizer-ci.com/g/lingul/ramverk1_weathermodule/build-status/master)
+
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/lingul/ramverk1_weathermodule/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/lingul/ramverk1_weathermodule/?branch=master)
+
+[![Code Coverage](https://scrutinizer-ci.com/g/lingul/ramverk1_weathermodule/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/lingul/ramverk1_weathermodule/?branch=master)
+
+[![Build Status](https://scrutinizer-ci.com/g/lingul/ramverk1_weathermodule/badges/build.png?b=master)](https://scrutinizer-ci.com/g/lingul/ramverk1_weathermodule/build-status/master)
+
+[![Code Intelligence Status](https://scrutinizer-ci.com/g/lingul/ramverk1_weathermodule/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
+
+[![CircleCI](https://circleci.com/gh/lingul/ramverk1_weathermodule.svg?style=svg)](https://circleci.com/gh/lingul/ramverk1_weathermodule)
+
 # ramverk1-weathermodule
 Weather module for redovisa webpage within the course ramverk1.
 
