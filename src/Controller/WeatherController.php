@@ -8,20 +8,19 @@ use Anax\Controller\IpModel;
 
 // Turn off all error reporting
 error_reporting(0);
-
 // use Anax\Route\Exception\ForbiddenException;
 // use Anax\Route\Exception\NotFoundException;
 // use Anax\Route\Exception\InternalErrorException;
 
 /**
- * A sample controller to show how a controller class can be implemented.
- * The controller will be injected with $di if implementing the interface
- * ContainerInjectableInterface, like this sample class does.
- * The controller is mounted on a particular route and can then handle all
- * requests for that mount point.
- *
- * @SuppressWarnings(PHPMD.TooManyPublicMethods)
- */
+* A sample controller to show how a controller class can be implemented.
+* The controller will be injected with $di if implementing the interface
+* ContainerInjectableInterface, like this sample class does.
+* The controller is mounted on a particular route and can then handle all
+* requests for that mount point.
+*
+*@SuppressWarnings(PHPMD.TooManyPublicMethods)
+*/
 class WeatherController implements ContainerInjectableInterface
 {
     use ContainerInjectableTrait;
@@ -47,8 +46,6 @@ class WeatherController implements ContainerInjectableInterface
         // Use to initialise member variables.
         $this->model = new IpModel();
     }
-
-
 
     /**
      * This is the index method action, it handles:
@@ -94,23 +91,8 @@ class WeatherController implements ContainerInjectableInterface
                 $long = $latlong[1];
             }
 
-            if ($type == "Historik") {
-                $answer = $weather->histWeather($lat, $long);
-                if (!is_string($answer)) {
-                    foreach ($answer as $day) {
-                        $summaries[] = $day[0]["summary"];
-                    }
-                    $dates = $weather->dates('-31 day', 30);
-                }
-            } elseif ($type == "Kommande") {
-                $answer = $weather->newWeather($lat, $long);
-                if (!is_string($answer)) {
-                    foreach ($answer as $day) {
-                        $summaries[] = $day["summary"];
-                    }
-                    $dates = $weather->dates(' +1 day', 7);
-                }
-            }
+            $this->checkhist($answer, $type, $weather, $lat, $long, $dates, $summaries);
+
             $country = $res["country_name"];
             $region = $res["region_name"];
         }
@@ -133,4 +115,28 @@ class WeatherController implements ContainerInjectableInterface
             "title" => $title,
         ]);
     }
+
+    /**
+     * Check historik and kommande
+     */
+    private function checkhist($answer, $type, $weather, $lat, $long, $dates, $summaries) {
+        if ($type == "Historik") {
+            $answer = $weather->histWeather($lat, $long);
+            if (!is_string($answer)) {
+                foreach ($answer as $day) {
+                    $summaries[] = $day[0]["summary"];
+                }
+                $dates = $weather->dates('-31 day', 30);
+            }
+        } elseif ($type == "Kommande") {
+            $answer = $weather->newWeather($lat, $long);
+            if (!is_string($answer)) {
+                foreach ($answer as $day) {
+                    $summaries[] = $day["summary"];
+                }
+                $dates = $weather->dates(' +1 day', 7);
+            }
+        }
+    }
+
 }

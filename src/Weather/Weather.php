@@ -6,14 +6,15 @@ use Anax\Commons\ContainerInjectableInterface;
 use Anax\Commons\ContainerInjectableTrait;
 
 /**
- * To ease rendering a page consisting of several views.
- */
+* To ease rendering a page consisting of several views.
+*@SuppressWarnings(PHPMD)
+*/
 class Weather implements ContainerInjectableInterface
 {
     use ContainerInjectableTrait;
 
 
-    public function dates($start, $to) : array
+    public function dates($start, $end) : array
     {
         $old = new \DateTime();
         if ($start) {
@@ -21,7 +22,7 @@ class Weather implements ContainerInjectableInterface
         }
         $dates = [];
         $day = 0;
-        while ($day <= $to) {
+        while ($day <= $end) {
             $dates[] = $old->format("Y-m-d");
             $old->modify('+1 day');
             $day+=1;
@@ -68,7 +69,7 @@ class Weather implements ContainerInjectableInterface
         // data to be returned
         $result = array();
         // multi handle
-        $mh = curl_multi_init();
+        $umha = curl_multi_init();
         $day = 0;
         while ($day <=30) {
             // URL from which data will be fetched
@@ -78,16 +79,16 @@ class Weather implements ContainerInjectableInterface
             curl_setopt($multiCurl[$day], CURLOPT_URL, $fetchURL);
             curl_setopt($multiCurl[$day], CURLOPT_HEADER, 0);
             curl_setopt($multiCurl[$day], CURLOPT_RETURNTRANSFER, 1);
-            curl_multi_add_handle($mh, $multiCurl[$day]);
+            curl_multi_add_handle($muha, $multiCurl[$day]);
             $day+=1;
         }
         $index=null;
         do {
-            curl_multi_exec($mh, $index);
+            curl_multi_exec($muha, $index);
         } while ($index);
         // get content and remove handles
         foreach ($multiCurl as $k) {
-            curl_multi_remove_handle($mh, $k);
+            curl_multi_remove_handle($muha, $k);
         }
         $data = null;
         foreach ($multiCurl as $ch) {
@@ -107,7 +108,7 @@ class Weather implements ContainerInjectableInterface
             // $i+=1;
         }
         // close
-        curl_multi_close($mh);
+        curl_multi_close($muha);
         return $fixedResult;
     }
     public function json($apiResult, $dates, $type)

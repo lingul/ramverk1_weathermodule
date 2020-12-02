@@ -11,14 +11,14 @@ use Anax\Controller\IpModel;
 // use Anax\Route\Exception\InternalErrorException;
 
 /**
- * A sample controller to show how a controller class can be implemented.
- * The controller will be injected with $di if implementing the interface
- * ContainerInjectableInterface, like this sample class does.
- * The controller is mounted on a particular route and can then handle all
- * requests for that mount point.
- *
- * @SuppressWarnings(PHPMD.TooManyPublicMethods)
- */
+* A sample controller to show how a controller class can be implemented.
+* The controller will be injected with $di if implementing the interface
+* ContainerInjectableInterface, like this sample class does.
+* The controller is mounted on a particular route and can then handle all
+* requests for that mount point.
+*
+@SuppressWarnings(PHPMD.TooManyPublicMethods)
+*/
 class WeatherJsonController implements ContainerInjectableInterface
 {
     use ContainerInjectableTrait;
@@ -67,6 +67,10 @@ class WeatherJsonController implements ContainerInjectableInterface
         ]);
     }
 
+    /**
+    * Return array
+    *@SuppressWarnings(PHPMD.UnusedLocalVariable)
+    */
     public function jsonAction() : array
     {
         $weather = $this->di->get("weather");

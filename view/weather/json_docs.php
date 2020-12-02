@@ -1,7 +1,9 @@
 <?php
 
 namespace Anax\View;
+
 ?>
+
 <p>
 REST API to get weather using ip address or latitude, longitude.
 <br>

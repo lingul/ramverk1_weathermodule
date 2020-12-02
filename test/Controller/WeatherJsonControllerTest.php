@@ -6,8 +6,9 @@ use Anax\DI\DIFactoryConfig;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Test the SampleController.
- */
+* Test the SampleController.
+*@SuppressWarnings(PHPMD)
+*/
 class WeatherJsonControllerTest extends TestCase
 {
     /**
