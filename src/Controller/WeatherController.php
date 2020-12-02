@@ -119,7 +119,8 @@ class WeatherController implements ContainerInjectableInterface
     /**
      * Check historik and kommande
      */
-    private function checkhist($answer, $type, $weather, $lat, $long, $dates, $summaries) {
+    private function checkhist($answer, $type, $weather, $lat, $long, $dates, $summaries)
+    {
         if ($type == "Historik") {
             $answer = $weather->histWeather($lat, $long);
             if (!is_string($answer)) {
@@ -138,5 +139,4 @@ class WeatherController implements ContainerInjectableInterface
             }
         }
     }
-
 }
